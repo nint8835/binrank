@@ -22,17 +22,22 @@ export function RankingView({ items }: { items: string[] }) {
         <div className="h-full w-full">
             <div>{JSON.stringify(rankedItems, null, 2)}</div>
             <div>{JSON.stringify(pendingItems, null, 2)}</div>
-            <div>
-                {low}, {high}
-            </div>
-            <div className="flex gap-2">
-                <button className="flex-1 rounded-md bg-green-400 p-2" onClick={() => setHigh(mid)}>
-                    {rankedItems[mid]}
-                </button>
-                <button className="flex-1 rounded-md bg-blue-400 p-2" onClick={() => setLow(mid + 1)}>
-                    {pendingItems[0]}
-                </button>
-            </div>
+            {pendingItems.length !== 0 && (
+                <div className="flex flex-col gap-2 md:flex-row">
+                    <button
+                        className="flex-1 rounded-md bg-purple-500 p-2 transition-all hover:bg-purple-700"
+                        onClick={() => setHigh(mid)}
+                    >
+                        {rankedItems[mid]}
+                    </button>
+                    <button
+                        className="flex-1 rounded-md bg-emerald-500 p-2 transition-all hover:bg-emerald-700"
+                        onClick={() => setLow(mid + 1)}
+                    >
+                        {pendingItems[0]}
+                    </button>
+                </div>
+            )}
         </div>
     );
 }
