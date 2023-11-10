@@ -17,10 +17,10 @@ function pluralize(word: string, count: number): string {
 }
 
 export function ListInput({
-    setPendingItems,
+    setItems,
     setIsRanking,
 }: {
-    setPendingItems: (items: string[]) => void;
+    setItems: (items: string[]) => void;
     setIsRanking: (isRanking: boolean) => void;
 }) {
     const [text, setText] = useState('');
@@ -45,7 +45,7 @@ export function ListInput({
                 className="rounded-lg bg-emerald-600 p-2 transition-all hover:bg-emerald-800 disabled:bg-zinc-800 disabled:text-zinc-700"
                 disabled={itemCount === 0}
                 onClick={() => {
-                    setPendingItems(items);
+                    setItems(items);
                     setIsRanking(true);
                 }}
             >
